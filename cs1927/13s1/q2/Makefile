@@ -1,18 +1,14 @@
-# Makefile for COMP1927 15s2 Exam Question Q3
-
 CC=gcc
-CFLAGS=-std=c99 -Wall -Werror
-OBJS=main.o Graph.o Queue.o Stack.o PQueue.o
+CFLAGS=-Wall -Werror -gdwarf-2
 
-q2 : $(OBJS)
-	$(CC) -o q2 $(OBJS)
+q2 : q2.o List.o
+	$(CC) $(CFLAGS) -o q2 q2.o List.o
 
-main.o : main.c Graph.h
+q2.o : q2.c List.h
+List.o : List.c List.h
 
-Graph.o : Graph.c Graph.h Queue.h
-Queue.o : Queue.c Queue.h Item.h
-Stack.o : Stack.c Stack.h Item.h
-PQueue.o : PQueue.c PQueue.h Item.h
+test : q2
+	check q2
 
 clean :
-	rm -f q2 $(OBJS) core
+	rm -fr q2 *.o q2.dSYM tests/*.out

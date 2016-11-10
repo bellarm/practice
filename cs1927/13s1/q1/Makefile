@@ -1,14 +1,11 @@
-# Makefile for COMP1927 15s2 Exam Question QX
-
 CC=gcc
-CFLAGS=-std=c99 -Wall -Werror
+CFLAGS=-Wall -Werror -gdwarf-2
 
-q1 : main.o BSTree.o
-	$(CC) -o q1 main.o BSTree.o
+q1 : q1.c
+	$(CC) $(CFLAGS) -o q1 q1.c
 
-main.o : main.c BSTree.h
-
-BSTree.o : BSTree.c BSTree.h
+test : q1
+	check q1
 
 clean :
-	rm -f q1 *.o core
+	rm -fr q1 q1.dSYM tests/*.out
