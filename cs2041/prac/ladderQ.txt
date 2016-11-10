@@ -1,0 +1,81 @@
+The author Lewis Carroll invented a game named ''Word Ladders''.
+A player is given two words of the same length.
+The player then attempt to find the shortest ''word ladder''
+connecting the words.
+
+A ''word ladder'' is a sequence of ''doublets''.
+
+A ''doublet'' is a pair of words that differ in exactly one letter; for example, "booster"
+and "rooster" or "rooster" and "roaster" or "roaster" and "roasted".
+
+Your program will be given three arguments.
+
+The first argument will be the name of a file containing lowercase words (only the characters [a-z]), one per line.
+
+The second and third arguments will be two words of equal length.
+
+Both words will occur in the file.
+
+Your program should then print the shortest word ladder connecting the first word to the second,
+such that all words are found in the file.
+
+If no word ladder exists your program should print the message "No solution.";
+
+If several word ladders of the same length exists it may print any one of them.
+
+You have been given a file named `words.txt` containing about 30000 words.
+
+Your program must be able to find the shortest word ladder
+in under 60 seconds for `words.txt`.
+
+You have also been given a very short file of words, `words.tiny.txt`, for testing.
+You may it useful to other such small files of words for debugging.
+
+For example, if your program was named `a.out`, this is how it should behave:
+
+{{{
+$ cat words.tiny.txt
+booster
+rooster
+roaster
+coasted
+roasted
+coastal
+posting
+$ a.out words.tiny.txt booster roasted
+booster
+rooster
+roaster
+roasted
+$ a.out words.tiny.txt coastal posting
+No solution.
+$ a.out words.txt ape man
+ape
+apt
+opt
+oat
+mat
+man
+$ a.out words.txt live dead
+live
+love
+lore
+lord
+load
+lead
+dead
+$ a.out words.txt shell files
+shell
+shall
+shale
+shame
+shams
+seams
+seals
+sells
+sills
+fills
+files
+$ a.out words.txt shell aloof
+No solution.
+}}}
