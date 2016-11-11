@@ -39,8 +39,9 @@ int ArrayMax(int a[], int n)
 // recursive function to find maximum in a[lo..hi]
 int max(int a[], int lo, int hi)
 {
+    // SOLUTION
     if (lo == hi) return a[lo];
     int maxLo = max(a, lo , (hi+lo)/2);
     int maxHi = max(a, (hi+lo+1)/2, hi);
-	return (maxHi > maxLo) ? maxHi : maxLo;
+    return (maxHi > maxLo) ? maxHi : maxLo;
 }
