@@ -5,16 +5,20 @@ A.
 Operation             State of Queue after operation
                       [highest priority ... lowest priority]
 
-initially             -
-PQueueJoin(PQ, 'X')
-PQueueJoin(PQ, 'A')
-PQueueJoin(PQ, 'J')
-PQueueLeave(PQ)
-PQueueJoin(PQ, 'K')
-PQueueLeave(PQ)
-PQueueLeave(PQ)
+initially             	-
+PQueueJoin(PQ, 'X')		X
+PQueueJoin(PQ, 'A')		A X
+PQueueJoin(PQ, 'J')		A J X
+PQueueLeave(PQ)			J X
+PQueueJoin(PQ, 'K')		J K X
+PQueueLeave(PQ)			K X
+PQueueLeave(PQ)			X
 
 
 B.
 
-Replace this by your answer
+We can use queue, and put the items ordered according to their importance.
+
+-answer key-
+Queue: least recent item has highest priority (First in first out)
+Stack: most recent item has highest priority (last in first out)

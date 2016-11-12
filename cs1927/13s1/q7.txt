@@ -7,19 +7,34 @@ Show the nodes as follows ...
 
 Node   Contents of Node
 
-A      (?)
+A      (7, 12, 17)
 B      (1, 3, 5)
-C      (?)
-D      (?)
+C      (14, 15)
+D      (21, 25, 27)
 
 add any other nodes here
+E 		(10)
+This node should be connected to the link between 7 and 12 in node A
 
 
 B.
 
-Replace this by your answer
+Black nodes are the parents of the children
+Red nodes are the siblings of its parent
 
 
 C.
 
-Replace this by your answer
+Yes
+
+-answer key-
+B.
+
+Red-black tree nodes have a colour field, as well as a data field
+and sub-tree pointers
+
+
+C.
+
+No ... each 3-node has two possible representations
+
