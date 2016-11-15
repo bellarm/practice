@@ -122,5 +122,6 @@ Matrix multiply(Matrix x, Matrix y)
          }
       }
    }
+   dropMatrix(x); dropMatrix(y);
    return new;
 }
