@@ -119,10 +119,7 @@ Connects *wellConnected(Graph g, int *nconns)
    // TODO: replace the two lines below
    Connects *toReturn = calloc(g->nV, sizeof(struct _conn));
    *nconns = 0;
-   int i = 0;
-   int j = 0;
-   int k = 0;
-   int l = 0;
+   int i,j,k,l;
    int connection = 0;
    for (i = 0; i < g->nV; i++) {
       connection = 0;
