@@ -106,6 +106,7 @@ Matrix add(Matrix x, Matrix y)
 // returns NULL if matrices are not compatible
 Matrix multiply(Matrix x, Matrix y)
 {
+   // SOLUTION
    assert(x != NULL && x->val != NULL);
    assert(y != NULL && y->val != NULL);
    if (x->ncols != y->nrows) {
@@ -113,14 +114,13 @@ Matrix multiply(Matrix x, Matrix y)
       return NULL;
    }
    Matrix new = newMatrix(x->nrows, y->ncols);
-   int row, col, xCol; //,xRow, yRow, yCol;
+   int row, col, xCol;
    for (row = 0; row < new->nrows; row++) {
       for (col = 0; col < new->ncols; col++) {
          for (xCol = 0; xCol < x->ncols; xCol++) {
             new->val[row][col] += x->val[row][xCol] * y->val[xCol][col];
-            //printf("new(%d,%d) is x(%d,%d) times y(%d,%d) and is equal to %d\n\n",row,col,row,xCol,xCol,col,new->val[row][col]);
          }
       }
    }
-   return new; // TODO
+   return new;
 }
