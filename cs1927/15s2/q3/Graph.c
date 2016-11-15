@@ -255,8 +255,32 @@ void findPath(Graph g, Vertex src, Vertex dest)
 
 
 // Find all vertices which are <= d edges from v
-int within(Graph g, Vertex s, int d, Vertex *vs)
+int within(Graph g, Vertex v, int d, Vertex *vs)
 {
-   // TODO
-   return 0; // replace this statement
+   // SOLUTION
+   int *pred = calloc(g->nV,sizeof(int));
+   int *dist = calloc(g->nV,sizeof(int));
+   int *visited = calloc(g->nV,sizeof(int));
+   int *added = calloc(g->nV,sizeof(int));
+   int connected = 0;
+   Queue toVisit = newQueue();
+   QueueJoin(toVisit, v);
+   while (!QueueIsEmpty(toVisit)) {
+      Vertex curr = QueueLeave(toVisit);
+      visited[curr] = 1;
+      int i;
+      for (i = 0; i < g->nV; i++) {
+         if (g->edges[curr][i]) {
+            if (visited[i]) continue;
+            QueueJoin(toVisit, i);
+            if (!pred[i]) { pred[i] = curr; dist[i] = dist[curr] + 1; }
+            if (dist[i] <= d && !added[i]) {
+               added[i] = 1;
+               vs[connected++] = i;
+            }
+         }
+      }
+   }
+   free(pred); free(dist); free(visited); free(added);
+   return connected;
 }
