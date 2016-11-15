@@ -70,5 +70,24 @@ void insertHashTable(HashTable ht, int val)
 // double the number of slots/chains in a hash table
 void expand(HashTable ht)
 {
-   return; //TODO
+   //TODO
+   List *new = calloc(ht->nslots*2,sizeof(List*));
+   assert(new != NULL);
+   int i, j, num = 0; int *elmts;
+   // create a new list for the new nslots
+   for (i = 0; i < ht->nslots*2; i++) {
+      new[i] = newList();
+   }
+   // move the old chains to the new one
+   for (i = 0; i < ht->nslots; i++) {
+      elmts = valuesFromList(ht->chains[i],&num);
+      for (j = 0; j < num; j++) {
+         int h = hash(elmts[j],ht->nslots*2);
+         appendList(new[h],elmts[j]);
+      }
+   }
+
+
+   ht->nslots *= 2;
+   ht->chains = new;
 }

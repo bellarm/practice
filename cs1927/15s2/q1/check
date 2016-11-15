@@ -26,7 +26,8 @@ fi
 for tt in tests/*.sh
 do
 	t=`basename $tt .sh`
-	tests/$t.sh | head -500 > tests/$t.out
+	chmod +x tests/$t.sh
+	./tests/$t.sh | head -500 > tests/$t.out
 	if cmp -s tests/$t.exp tests/$t.out
 	then
 		echo Passed test $t

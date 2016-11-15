@@ -23,10 +23,11 @@ then
 	exit 1
 fi
 
-for tt in tests/*.in
+for tt in tests/*.sh
 do
-	t=`basename $tt .in`
-	"./$BIN" < tests/$t.in | head -500 > tests/$t.out
+	t=`basename $tt .sh`
+	chmod +x tests/$t.sh
+	tests/$t.sh | head -500 > tests/$t.out
 	if cmp -s tests/$t.exp tests/$t.out
 	then
 		echo Passed test $t
@@ -35,4 +36,3 @@ do
 		echo Compare files tests/$t.exp and tests/$t.out to see differences
 	fi
 done
-
